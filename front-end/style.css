@@ -68,3 +68,23 @@ body::after {
     transform: scale(1.03);
     background: #0b5e58;
 }
+label{
+    color:#ffffff;
+    font-weight: 500;
+}
+.checkbox-group{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    a{
+        color:#0b5e58;
+        text-decoration: none;
+    }
+    input[type="checkbox"]{
+        accent-color: #0b5e58;
+        border-color: #ffffff;
+        
+    }
+
+}
