@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, sans-serif;
+    text-decoration: none;
 }
 body {
     height: 100vh;
@@ -87,4 +88,25 @@ label{
         
     }
 
+}
+
+.content{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    .img1{
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex: 1;
+    }
+    .box1-landing{
+        color:white;
+        gap:20px;
+    }
+    .landing-title{
+        font-size: 50px;
+    }
 }
