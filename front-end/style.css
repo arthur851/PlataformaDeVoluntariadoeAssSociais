@@ -34,7 +34,8 @@ body::after {
     bottom: -50px;
     right: -40px;
 }.form-box {
-    width: 320px;
+    width: 25vw;
+    height: 55vh;
     padding: 35px;
     background: rgba(255, 255, 255, 0.18);
     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -77,6 +78,7 @@ label{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
     
     a{
         color:#0b5e58;
@@ -109,4 +111,10 @@ label{
     .landing-title{
         font-size: 50px;
     }
+}
+
+.linkForCadastro{
+    color:white;
+    text-align: center;
+    margin-top: 20px;
 }

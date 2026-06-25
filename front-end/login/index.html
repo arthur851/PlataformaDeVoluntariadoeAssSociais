@@ -3,21 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="C:\Users\Letycia\Documents\GitHub\PlataformaDeVoluntariadoeAssSociais\front-end\style.css">
+    <link rel="stylesheet" href="../style.css">
     <title> LOGIN </title>
 </head>
 <body>
-    <main>       
-       
+    <main>
             <form class="form-box">
                 <h2>LOGIN</h2>
                 <div class="input-group">
                     <label for="email"> Email: </label>
-                    <input type="text" placeholder="Usuário">
+                    <input type="email" placeholder="Email" id="email">
                 </div>
                 <div class="input-group">
                     <label for="senha"> Senha: </label>
-                    <input type="password" placeholder="Senha">
+                    <input type="password" placeholder="Senha" id="senha">
                 </div>
                 <div class="checkbox-group"> 
                     <input type="checkbox" id="lembrar-senha">
@@ -26,8 +25,9 @@
                     <label for="lembrar-senha"> <a href="login.html"> esqueceu a senha? </a></label>
                 </div>
                 <button class="btn">Entrar</button>
-            </form>     
-       
+            </form>
+            <p class = "linkForCadastro">Não tem uma conta? <a href="../cadastro/index.html"> Cadastre-se </a></p>
     </main>
+    <script src="script.js"></script>
 </body>
 </html>
