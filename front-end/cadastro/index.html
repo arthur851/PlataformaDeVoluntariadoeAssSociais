@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastre-se</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <form class="form-box">
+        <h2>Cadastrar</h2>
+        <div class="input-group">
+            <label for="nome">Nome:</label>
+            <input type="text" placeholder="nome" id="nome" required>
+        </div>
+        
+        <div class="input-duplo">
+            <div class="input-group">
+                <label for="cpf">CPF:</label>
+                <input type="text" placeholder="CPF" id="cpf" required>
+            </div>
+            <div class="input-group">
+                <label for="telefone">Telefone:</label>
+                <input type="tel" placeholder="Telefone" id="telefone" required>
+            </div>
+        </div>
+        <div class="input-group">
+            <label for="email">Email:</label>
+            <input type="email" placeholder="Email" id="email" required>
+        </div>
+        <div class="input-group">
+            <label for="senha">Senha:</label>
+            <input type="password" placeholder="Senha" id="senha" required>
+        </div>
+        <div class="input-group">
+            <label for="confirmar-senha">Confirmar Senha:</label>
+            <input type="password" placeholder="Confirmar Senha" id="confirmar-senha" required>
+        </div>
+        <button class="btn">Cadastrar-me</button>
+    </form>
+</body>
+</html>
