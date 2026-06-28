@@ -128,4 +128,21 @@ label{
     color:white;
     text-align: center;
     margin-top: 20px;
+}.input-image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    input[type="file"]{
+        display: none;
+    }
+}.botao-upload {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #009688;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+}.botao-upload:hover {
+    background: #00796b;
 }
