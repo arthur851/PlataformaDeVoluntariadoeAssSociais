@@ -7,20 +7,29 @@ body{
     font-family: Arial, sans-serif;
     text-decoration: none;
 }
+
 .box-header{
     background-color: rgb(71, 176, 32);
     display:flex;
     height:50px;
     max-width:250vh;
-
 }
+
 .section1{
     background-color: blue;
     display:flex;
     height:500px;
     max-width:250vh;
     flex-direction: row;
-   }
+}
+ /* aqui mudei so o column */
+.section2{
+    background-color: blue;
+    display:flex;
+    height:500px;
+    max-width:250vh;
+    flex-direction:column;
+}
 
 .box-text1{
     background-color: rgb(137, 135, 0);
@@ -35,6 +44,14 @@ body{
         font-size: 50px;
     }
    
+}
+
+.box-text2{
+    background-color: rgb(71, 176, 32);
+   
+    height:50px;
+    max-width:250vh;
+
 }
 
 .box_img1{
