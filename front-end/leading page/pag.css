@@ -2,37 +2,57 @@
     padding:0;
     margin:0;
 }
+.link-cadastro{
+    text-decoration: none;
+    font-size: 50px;
+    color: #0f766e;
+    font-weight: 600;
+   
+}
 body{
     background-color: #A7E8D6;
     font-family: Arial, sans-serif;
     text-decoration: none;
+    color: #0f766e;
 }
-
+.landing-title{
+    font-size: 50px;
+}
 .box-header{
-    background-color: rgb(71, 176, 32);
+    background-color:  #0f766e;
     display:flex;
     height:50px;
     max-width:250vw;
 }
 
 .section1{
-    background-color: blue;
+    background-color: #A7E8D6;
     display:flex;
     height:500px;
-    max-width:250vh;
+    max-width:250vw;
     flex-direction: row;
 }
  /* aqui mudei so o column */
 .section2{
-    background-color: blue;
+    background-color: #A7E8D6;
     display:flex;
     height:500px;
     max-width:250vw;
     flex-direction:row;
 }
 
+.section3{
+    background-color: #A7E8D6;
+    display:flex;
+    height:200px;
+    max-width:250vw;
+    flex-direction:row;
+    align-items: center;
+    justify-content: center;
+}
+
 .box-text1,.box-text2{
-    background-color: rgb(137, 135, 0);
+    background-color: #A7E8D6;
     width:150vw;
     height:500px;
     display: flex;
@@ -40,22 +60,21 @@ body{
     justify-content: center;
     flex-direction:column;
     gap:20px;
-    color:white;
+    
 }
 
 .section2-title{
-    background-color: rgb(77, 0, 73);
-    height:70px;
+    background-color: #A7E8D6;
     max-width:250vw;
     padding-top:20px;
     text-align: center;
-    font-size:30px;
-    color:white;
+    font-size:35px;
+    
 }
 
 .box_img1,.box_img2{
     position: relative;
-    background-color: red;
+    background-color: #A7E8D6;
     width:100vw;
     height:500px;
     display:flex;
@@ -111,3 +130,53 @@ body{
 .btn:hover {
     transform: scale(1.03);
     background: #0b5e58;}
+
+
+
+.footer-waves-wrapper {
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  background: transparent;
+}
+
+.waves-canvas {
+  width: 250vw; /* Largura total contínua */
+  height: 140px; 
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.waves-svg-container {
+  width: 250vw;
+  height: 140px;
+  display: block;
+  
+}
+
+/* Conecta o bloco preto do rodapé com a onda sólida da frente */
+.footer-impacto {
+  background-color: #0f766e; /* Mesma cor da onda da frente */
+  color: #ffffff;
+  font-family: sans-serif;
+  margin-top: -2px; /* Força o encaixe perfeito sem frestas */
+}
+
+.impacto-content {
+  padding: 40px 20px;
+  font-weight: bold;
+  font-size: 1.3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.apoiadores-bar {
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  text-align: center;
+  padding: 20px 0;
+  font-weight: bold;
+  letter-spacing: 2px;
+  background-color:  #0f766e;
+}
