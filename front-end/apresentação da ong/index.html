@@ -26,10 +26,24 @@
     </header>
 
     <main>
-        <section class ="section1">
-          
+      <section class="section-space">
+
+      </section>
+        <section class ="section-carossel">
+         <div class="carrossel-wrapper">
+        <!-- Botões de navegação -->
+        <button class="seta anterior" onclick="mudarSlide(-1)">&#10094;</button>
+        <button class="seta proximo" onclick="mudarSlide(1)">&#10095;</button>
+
+        <!-- Container dos slides -->
+        <div class="carrossel-container" id="carrossel">
+          <img src="img-teste.jpg" alt="Foto 1" class="slide">
+          <img src="img-teste.jpg" alt="Foto 2" class="slide">
+          <img src="img-teste.jpg" alt="Foto 3" class="slide">
+        </div>
+      </div>
         </section>
-      
+        <section class="section-space"></section>
         <section class="section1">
               <div class="box-text1">
                 <h1 class="landing-title"> ANIMAL 1</h1>
@@ -64,31 +78,30 @@
             </div>
         </section>    
     </main>
-    <!-- O container agora assume os 250vw reais -->
-<!-- Container que segura a largura de 250vw sem quebrar a tela -->
+  
 <div class="footer-waves-wrapper">
   <div class="waves-canvas">
     
-    <!-- ONDAS CORRIGIDAS SEM TRAÇOS NO MEIO -->
+    
     <svg class="waves-svg-container" xmlns="http://w3.org">
       <defs>
-        <!-- Onda 1: Fundo (Cinza Claro) -->
+        
         <pattern id="wave1" width="400" height="140" patternUnits="userSpaceOnUse">
           <path d="M 0 60 Q 100 110 200 60 T 400 60 L 400 140 L 0 140 Z" fill= "#0f766e" opacity="0.3"/>
         </pattern>
         
-        <!-- Onda 2: Meio (Cinza Médio) -->
+       
         <pattern id="wave2" width="300" height="140" patternUnits="userSpaceOnUse" x="80">
           <path d="M 0 70 Q 75 115 150 70 T 300 70 L 300 140 L 0 140 Z" fill="#0f766e" opacity="0.6"/>
         </pattern>
         
-        <!-- Onda 3: Frente (Preta sólida - Conecta com o footer) -->
+       
         <pattern id="wave3" width="500" height="140" patternUnits="userSpaceOnUse" x="150">
           <path d="M 0 80 Q 125 120 250 80 T 500 80 L 500 140 L 0 140 Z" fill="#0f766e" opacity="1"/>
         </pattern>
       </defs>
 
-      <!-- Retângulos que cobrem os 250vw e colam as ondas na base -->
+     
       <rect width="250vw" height="140" fill="url(#wave1)" />
       <rect width="250vw" height="140" fill="url(#wave2)" />
       <rect width="250vw" height="140" fill="url(#wave3)" />

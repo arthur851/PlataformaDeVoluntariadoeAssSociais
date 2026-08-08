@@ -22,7 +22,7 @@ header{
     padding:18px 40px;
     border:1px solid rgba(0,0,0,.12);
     border-radius:18px;
-    background:rgba(255,255,255,.65);
+    background:rgba(15, 118, 110, 0.65);
     backdrop-filter:blur(18px);
     transition:.35s;
 }
@@ -33,7 +33,7 @@ header{
 }
 .logo{
     text-decoration:none;
-    color:#111;
+    color:white;
     font-size:1.8rem;
     font-weight:700;
     letter-spacing:1px;
@@ -46,7 +46,7 @@ header{
 .nav-links a{
     position:relative;
     text-decoration:none;
-    color:#111;
+    color:white;
     font-size:17px;
     font-weight:500;
     transition:.3s;
@@ -58,12 +58,12 @@ header{
     bottom:-6px;
     width:0;
     height:2px;
-    background:#111;
+    background:#ffffff;
     transform:translateX(-50%);
     transition:.35s;
 }
 .nav-links a:hover{
-    color:#000;
+    color:#ffffff;
     transform:translateY(-2px);
 }
 .nav-links a:hover::after{
@@ -84,16 +84,27 @@ body{
     color: #0f766e;
 }
 .landing-title{
-    font-size: 50px;
+    font-size: 60px;
+}
+.section-space{
+    background-color: #A7E8D6;
+    display:flex;
+    height:125px;
+    max-width:250vw;
+    flex-direction:row;
+    align-items: center;
+    justify-content: center;
 }
 
-.section1{
+
+.section1,.section-carossel{
     background-color: #A7E8D6;
     display:flex;
     height:500px;
     max-width:250vw;
     flex-direction: row;
 }
+
  /* aqui mudei so o column */
 .section2{
     background-color: #A7E8D6;
@@ -146,8 +157,8 @@ body{
 }
 
 .img1{
-    width: 400px;       
-    height: 400px;
+    width: 450px;       
+    height: 450px;
     border-radius: 50%; 
     object-fit: cover; 
  }
@@ -244,3 +255,51 @@ body{
 }
 
 
+.carrossel-wrapper {
+  position: relative;
+  max-width: 250vw;
+  margin: auto;
+}
+
+
+.carrossel-container {
+  display: flex;
+  overflow-x: hidden; 
+  scroll-behavior: smooth;
+}
+
+
+.slide {
+  width: 100%;
+  height:600px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+
+.seta {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.7);
+  color: #333;
+  border: none;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%; 
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s;
+  z-index: 10;
+}
+
+.seta:hover {
+  background-color: rgba(255, 255, 255, 1);
+}
+
+
+.anterior { left: 15px; }
+.proximo { right: 15px; }
