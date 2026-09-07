@@ -9,9 +9,9 @@ const inputEmail= document.querySelector("#email")
 const inputSenha= document.querySelector("#senha")
 const inputConfirmarSenha= document.querySelector("#confirmar-senha")
 
-cadastroForm.addEventListener("submit", validarCadastro);
+cadastroForm.addEventListener("submit", Cadastro);
 
-async function validarCadastro(event) {
+async function Cadastro(event) {
 
     event.preventDefault(); 
 
@@ -47,6 +47,10 @@ async function validarCadastro(event) {
     if (!regexEmail.test(email)) {
       alert("E-mail inválido! Digite um e-mail válido (ex: seu@email.com)");
       return;
+    }
+    //validação de senha a combinar com o grupo
+    if (senha !== 12 ){
+      alert("...")
     }
     
     if (senha !== confirmarSenha){

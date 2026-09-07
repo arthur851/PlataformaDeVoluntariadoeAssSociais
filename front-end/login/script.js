@@ -1,9 +1,18 @@
-const formLogin = document.querySelector("form-box");
+const formLogin = document.querySelector(".form-box");
 const inputEmail = document.querySelector('#email');
 const inputPassword = document.querySelector('#senha');
 
 
-form.addEventListener('submit', async (e) => {
-    e.preventDefault();
+cadastroForm.addEventListener("submit", Login);
+
+async function Login(event) {
+    if ( email === "" || senha === "") {
+        alert("Por favor, preencha todos os campos para logar.");
+        return; 
+    }
     
-});
+}
+
+
+
+
