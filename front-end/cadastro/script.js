@@ -14,7 +14,6 @@ cadastroForm.addEventListener("submit", Cadastro);
 async function Cadastro(event) {
 
     event.preventDefault(); 
-
   
     const nome = inputNome.value.trim();
     const cpf = inputCPF.value.trim();
@@ -24,10 +23,11 @@ async function Cadastro(event) {
     const senha = inputSenha.value.trim()
     const confirmarSenha  = inputConfirmarSenha.value.trim()
  
-
+    //não está funcionando por causa dos
+    
     if (nome === "" || cpf === "" || telefone === "" || email === ""  || senha === ""   || confirmarSenha === "" ) {
         //alterar o alet para uma função de janela propria posteriormente
-        alert("Por favor, preencha todos os campos do cadastro. ");
+        exibirMensagem("Dados","Por favor, preencha todos os campos do cadastro. ");
         return; 
     }
 
