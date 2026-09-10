@@ -49,7 +49,7 @@ async function Cadastro(event) {
       return;
     }
     //validação de senha a combinar com o grupo
-    if (senha !== 12 ){
+    if (senha.length !== 12 ){
       alert("...")
     }
     
