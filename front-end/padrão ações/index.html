@@ -1,27 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../style.css">
-    
+    <title>Campanha</title>
+    <link rel="stylesheet" href="../leading page/pag.css">
 </head>
 <body>
     <meu-menu></meu-menu>
-    <div class="container">
-        <!--Campanha
-        │
-        ├── Cabeçalho da Campanha
-        ├── Imagem(ns) da Campanha
-        ├── Informações da Campanha
-        ├── Barra de Progresso
-        ├── Descrição da Campanha
-        ├── Formulário Doação
-        └── Rodapé-->
-
-    </div>
-    <mensagem></mensagem>
+    <main class="campanha-container">
+        <section class="campanha-cabecalho">
+            <h1>Ajude nossa campanha</h1>
+            <p>Juntos podemos fazer a diferença.</p>
+        </section>
+        <section class="campanha-principal">
+            <div class="campanha-imagem">
+                <img src="../apresentação da ong/img-teste.jpg" alt="Imagem da campanha">
+            </div>
+            <div class="campanha-informacoes">
+                <h2>Ajude esta causa</h2>
+                <p>Contribua para que esta campanha consiga alcançar seu objetivo.</p>
+                <div class="campanha-valores">
+                    <div>
+                        <span>Arrecadado</span>
+                        <strong>R$ 3.500,00</strong>
+                    </div>
+                    <div>
+                        <span>Meta</span>
+                        <strong>R$ 5.000,00</strong>
+                    </div>
+                </div>
+                <div class="progresso-container">
+                    <div class="progresso-barra">
+                        <div class="progresso"></div>
+                    </div>
+                    <span>70% da meta alcançada</span>
+                </div>
+            </div>
+        </section>
+        <section class="campanha-descricao">
+            <h2>Sobre a campanha</h2>
+            <p>Esta campanha foi criada com o objetivo de arrecadar recursos para ajudar pessoas que precisam. Toda contribuição, independente do valor, pode fazer a diferença.</p>
+            <p>Ao realizar uma doação, você estará contribuindo diretamente para que essa iniciativa consiga alcançar sua meta.</p>
+        </section>
+        <section class="campanha-doacao">
+            <div class="doacao-conteudo">
+                <h2>Faça sua doação</h2>
+                <p>Escolha o valor que deseja contribuir.</p>
+                <form>
+                    <label for="valor">Valor da doação</label>
+                    <div class="campo-valor">
+                        <span>R$</span>
+                        <input type="number" id="valor" name="valor" placeholder="0,00" min="1" step="0.01" required>
+                    </div>
+                    <button type="submit" class="btn-doacao">Doar agora</button>
+                </form>
+            </div>
+        </section>
+    </main>
     <script src="../../back-end/scripts.js"></script>
 </body>
 </html>
