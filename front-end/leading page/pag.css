@@ -301,3 +301,246 @@ body{
 }
 .anterior { left: 15px; }
 .proximo { right: 15px; }
+
+.mainPerfil {
+    background-color: #A7E8D6;
+    min-height: 500px;
+    padding: 60px 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.identificacao {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.imagem {
+    width: 300px;
+    height: 300px;
+    border: 4px solid #0f766e;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.imagem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.nome {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.nome h3 {
+    color: #0f766e;
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.linkForEditar {
+    color: #0f766e;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.linkForEditar:hover {
+    text-decoration: underline;
+}
+
+.botao {
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.buttonLink {
+    width: 100%;
+    height: 65px;
+    border: 2px solid #0f766e;
+    border-radius: 12px;
+    background: transparent;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.buttonLink:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+}
+
+.buttonLink .linkForEditar {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.painelAcoes {
+    background-color: #A7E8D6;
+    padding: 60px 6%;
+    border-top: 1px solid #0f766e;
+    border-bottom: 1px solid #0f766e;
+}
+
+.painelAcoes h2 {
+    color: #0f766e;
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 40px;
+}
+
+.fotosAcoes {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    border: 2px solid #0f766e;
+    border-radius: 15px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.fotoAcao {
+    height: 220px;
+    border: 3px solid #0f766e;
+    border-radius: 15px;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fotoAcao::before {
+    content: "FOTO";
+    color: #0f766e;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.fotoAcao img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.fotoAcao img[src=""] {
+    display: none;
+}
+
+.impacto {
+    background-color: #A7E8D6;
+    padding-top: 45px;
+}
+
+.impacto h2 {
+    color: #0f766e;
+    text-align: center;
+    font-size: 38px;
+    margin-bottom: 25px;
+}
+
+.onda {
+    height: 80px;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 2px solid #0f766e;
+}
+
+.onda::before {
+    content: "";
+    position: absolute;
+    left: -5%;
+    bottom: 0;
+    width: 110%;
+    height: 55px;
+    border-top: 4px solid #0f766e;
+    border-radius: 50%;
+    transform: rotate(2deg);
+}
+
+.numeroImpacto {
+    min-height: 100px;
+    padding: 20px 7%;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: #0f766e;
+    font-size: 24px;
+}
+
+.numeroImpacto span {
+    font-size: 35px;
+}
+
+#numero {
+    margin-left: auto;
+    font-size: 30px;
+}
+
+@media (max-width: 1000px) {
+    .mainPerfil {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .identificacao {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nome {
+        align-items: center;
+    }
+
+    .botao {
+        width: 80%;
+    }
+
+    .fotosAcoes {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .mainPerfil {
+        padding: 40px 20px;
+    }
+
+    .imagem {
+        width: 200px;
+        height: 200px;
+    }
+
+    .nome h3 {
+        font-size: 28px;
+    }
+
+    .botao {
+        width: 100%;
+    }
+
+    .fotosAcoes {
+        grid-template-columns: 1fr 1fr;
+        padding: 12px;
+        gap: 12px;
+    }
+
+    .fotoAcao {
+        height: 140px;
+    }
+
+    .painelAcoes h2 {
+        font-size: 30px;
+    }
+}
