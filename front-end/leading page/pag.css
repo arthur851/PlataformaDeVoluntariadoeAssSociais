@@ -470,3 +470,170 @@ body{
         margin:50px auto;
     }
 }
+.pagamento-container{
+    width:100%;
+    padding-top:150px;
+    background-color:#A7E8D6;
+    color:#0f766e;
+    
+}
+ 
+.qr-code-pagamento{
+    width:300px;
+    height:300px;
+}
+
+.area-pagamento{
+    width:800px;
+    height:700px;
+    background-color: white;
+    display:flex;
+    flex-direction: column;
+    padding-top: 10px;
+}
+
+
+.section-pagamento{
+    background-color:#A7E8D6;
+    display:flex;
+    height:800px;
+    max-width:250vw;
+    flex-direction:row;
+    gap:50px;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.pix-pagamento{
+    background-color:white;
+    width: 500px;
+    height:500px;
+    display:flex;
+    align-items: center;
+    flex-direction: column;
+    gap:20px;
+}
+.box-pagamentos{
+    display:flex;
+    flex-direction: column;
+    gap:15px;
+    background-color:white;
+    padding-top: 10px;
+    padding-left:20px;
+    padding-right:20px;
+    h2{
+        font-size: 30px;
+    }
+}
+.box-bandeiras-cartao{
+    display:flex;
+    flex-direction: row;
+  
+}
+
+.bandeira-cartao{
+    background-color:white;
+    display:flex;
+    align-items: center;
+    flex-direction: column;
+    width:100px;
+    height:75px;
+    gap:5px;
+    padding-top:5px;
+}
+
+.img-bandeira-cartao{
+    width:75px;
+    height:50px;
+}
+.img-peixe-palhaco{
+    width:200px;
+    height:200px;
+}
+.titulo-pagamento{
+    text-align: center;
+    font-size: 35px;
+}
+.btn-pagamento{
+    width:400px;
+    height:70px;
+    border:none;
+    border-radius:10px;
+    background:#0f766e;
+    color:white;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+   
+}
+.btn-pagamento:hover{
+    transform:scale(1.03);
+    background:#0b5e58;
+}
+.informacoes-cartao{
+    background-color:white;
+    display:flex;
+    flex-direction: column;
+    gap:2px;
+
+    label{
+        font-size: 20px;
+    }
+}
+.btn-box-pagamento{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 20px;
+}
+
+.inp-info-pagamento{
+    width:300px;
+    height:15px;
+    background-color: white;
+    border: none;            
+    border-radius: 25px;    
+    padding: 10px 15px;    
+    outline: none;
+    color:white;
+    border: 2px solid #0f766e;      
+    
+
+}
+
+input[type="radio"] {
+    appearance: none;               
+    -webkit-appearance: none;
+    width: 20px;                
+    height: 20px;                  
+    border: 2px solid #0f766e;      
+    border-radius: 50%;             
+    outline: none;                 
+    cursor: pointer;               
+    background-color: white;   
+    transition: 0.2s;             
+}
+
+input[type="radio"]:checked {
+    background-color: #0f766e;      
+    border-color: #0f766e;        
+    box-shadow: inset 0 0 0 4px #ffffff; 
+}
+
+.p-pagamento{
+    font-size: 20px;
+}
+
+.opcao-boleto{
+    display:flex;
+    font-size:20px;
+    flex-direction: row;
+    p{
+        padding-top:15px;
+    }
+}
+.opcao-cartao{
+    font-size: 20px;
+}

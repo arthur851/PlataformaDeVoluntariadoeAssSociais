@@ -48,15 +48,34 @@ async function Cadastro(event) {
       alert("E-mail inválido! Digite um e-mail válido (ex: seu@email.com)");
       return;
     }
-    //validação de senha a combinar com o grupo
-    if (senha.length !== 12 ){
-      alert("...")
+   
+    if (!validarSenha(senha)) {
+      alert("Senha inválida! Siga o padrão sugerido.");
+      return; 
     }
     
     if (senha !== confirmarSenha){
       alert("As senhas não conferem. Digite novamente")
       return;
     }
+    try {
+        const response = await fetch(`${BASE_URL}/Usuarios`, {
+          method: "POST",
+          headers: {
+              "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            email:email,
+            senha: senha,
+            nome: nome,
+            cpf: cpf,
+            telefone: telefone
+          })
+        });
+    } catch (erro) {
+      
+    }
+
 }
 
 function validarCPF(cpf) {
@@ -87,6 +106,11 @@ function validarCPF(cpf) {
   if (resto !== parseInt(cpf.substring(10, 11))) return false;
 
   return true; 
+}
+
+function validarSenha(senha) {
+    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
+    return regex.test(senha);
 }
 
 
