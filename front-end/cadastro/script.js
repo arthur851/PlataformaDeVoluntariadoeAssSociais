@@ -14,7 +14,6 @@ cadastroForm.addEventListener("submit", Cadastro);
 async function Cadastro(event) {
 
     event.preventDefault(); 
-
   
     const nome = inputNome.value.trim();
     const cpf = inputCPF.value.trim();
@@ -24,10 +23,11 @@ async function Cadastro(event) {
     const senha = inputSenha.value.trim()
     const confirmarSenha  = inputConfirmarSenha.value.trim()
  
-
+    //não está funcionando por causa dos
+    
     if (nome === "" || cpf === "" || telefone === "" || email === ""  || senha === ""   || confirmarSenha === "" ) {
         //alterar o alet para uma função de janela propria posteriormente
-        alert("Por favor, preencha todos os campos do cadastro. ");
+        exibirMensagem("Dados","Por favor, preencha todos os campos do cadastro. ");
         return; 
     }
 
@@ -48,15 +48,34 @@ async function Cadastro(event) {
       alert("E-mail inválido! Digite um e-mail válido (ex: seu@email.com)");
       return;
     }
-    //validação de senha a combinar com o grupo
-    if (senha !== 12 ){
-      alert("...")
+   
+    if (!validarSenha(senha)) {
+      alert("Senha inválida! Siga o padrão sugerido.");
+      return; 
     }
     
     if (senha !== confirmarSenha){
       alert("As senhas não conferem. Digite novamente")
       return;
     }
+    try {
+        const response = await fetch(`${BASE_URL}/Usuarios`, {
+          method: "POST",
+          headers: {
+              "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            email:email,
+            senha: senha,
+            nome: nome,
+            cpf: cpf,
+            telefone: telefone
+          })
+        });
+    } catch (erro) {
+      
+    }
+
 }
 
 function validarCPF(cpf) {
@@ -87,6 +106,11 @@ function validarCPF(cpf) {
   if (resto !== parseInt(cpf.substring(10, 11))) return false;
 
   return true; 
+}
+
+function validarSenha(senha) {
+    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
+    return regex.test(senha);
 }
 
 

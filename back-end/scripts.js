@@ -75,3 +75,47 @@ class menu extends HTMLElement{
 }
 customElements.define("meu-menu",menu);
 customElements.define("meu-rodape",rodape);
+
+
+class mensagem extends HTMLElement{
+    constructor(){
+        super();
+    }
+    connectedCallback(){
+        const msg = document.createElement("div")
+        msg.innerHTML = `
+        <div class="container-mensagem escondido">
+            <button class="btnExcluir_msg" type="button">X</button>
+            <img src="" alt="icone">
+            <h1 class="tituloHTML"></h1>
+            <p class="descricaoHTML"></p>
+        </div>
+        `
+        this.appendChild(msg)
+        const btnExcluir_msg = this.querySelector('.btnExcluir_msg')
+        btnExcluir_msg.addEventListener("click", () => {
+            this.fechar()
+        })
+    }
+    exibir(tituloParam, textoParam){
+        const titulo = this.querySelector('.tituloHTML')
+        const texto = this.querySelector('.descricaoHTML')
+        const container = this.querySelector('.container-mensagem')
+        titulo.textContent = tituloParam
+        texto.textContent = textoParam
+        container.classList.remove('escondido')
+    }
+    fechar(){
+        const container = this.querySelector('.container-mensagem')
+        if(container){
+            container.classList.add('escondido')
+        }
+    }
+}
+customElements.define("alerta-mensagem",mensagem);
+function exibirMensagem(titulo, texto){
+    const alerta = document.querySelector('alerta-mensagem')
+    if(alerta){
+        alerta.exibir(titulo, texto)
+    }
+}

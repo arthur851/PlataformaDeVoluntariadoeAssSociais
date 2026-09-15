@@ -439,3 +439,18 @@
   .proximo {
   right: 15px;
   }
+
+  .container-mensagem{
+      width:400px;
+      height:400px;
+      background-color: white;
+      position: fixed;      
+      top: 50%;              
+      left: 50%;           
+      transform: translate(-50%, -50%); 
+      z-index: 9999;     
+      padding: 20px;
+  }
+  .escondido{
+    display:none !important;
+  }

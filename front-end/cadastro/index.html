@@ -8,7 +8,8 @@
 </head>
 <body class="pagina-formulario">
     <meu-menu></meu-menu>
-    <form class="form-box">
+    <!-- novalidate para testes  ---> 
+    <form class="form-box" novalidate>
         <h2>Cadastrar</h2>
         <div class="input-group">
             <label for="nome">Nome:</label>
@@ -38,7 +39,10 @@
             <input type="password" placeholder="Confirmar Senha" id="confirmar-senha" required>
         </div>
         <button class="btn">Cadastrar-me</button>
+        <alerta-mensagem></alerta-mensagem>
     </form>
     <script src="../../back-end/scripts.js"></script>
+    <script src="script.js"></script>
+    
 </body>
 </html>

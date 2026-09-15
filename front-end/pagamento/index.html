@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Aba de pagamento </title>
+    <link rel="stylesheet" href="../leading page/pag.css">
+</head>
+<body>
+    <meu-menu></meu-menu>
+    <!--NOTA: ESTÁ SEM FORM-->
+    <main class="pagamento-container">
+        <section class="section-pagamento">
+            <div class="pix-pagamento">
+                <h1 class="landing-title">Doe agora</h1>
+                <p>Os ecossistemas marinhos clamam por ajuda, faça a diferença</p>  
+                <img class="qr-code-pagamento" src="qrCode.jpg" alt="qr code">  
+                <div class="pagamento-qrCode">Pague com cartão ou contribua diretamente através desse pix</div>   
+            </div>
+                
+            <div class="area-pagamento">   
+                <h1 class="titulo-pagamento">Informações de pagamento</h1>
+                <div class="box-pagamentos">
+                  
+                    <h2>Opção com cartão:</h2>   
+                    <div class="opcao-cartao">
+                               
+                        
+                        <input type="radio" id="cartao-credito" name="tipo_pagamento">
+                        <label for="cartao-credito">Cartão de crédito</label>
+                        
+                        <input type="radio" id="cartao-debito" name="tipo_pagamento">
+                        <label for="cartao-debito">Cartão de débito</label>
+                    </div> 
+
+                    <p class="p-pagamento">Selecione a bandeira do seu cartão</p>
+                
+                    <div class="box-bandeiras-cartao">
+                        <div class="bandeira-cartao">
+                            <img class="img-bandeira-cartao" src="../apresentação da ong/img-teste.jpg">
+                            <input type="radio" name="bandeira_cartao" id="bandeira-visa">
+                        </div>
+                        <div class="bandeira-cartao">
+                            <img class="img-bandeira-cartao" src="../apresentação da ong/img-teste.jpg">
+                            <input type="radio" name="bandeira_cartao" id="bandeira-master">
+                        </div>
+                        <div class="bandeira-cartao">
+                            <img class="img-bandeira-cartao" src="../apresentação da ong/img-teste.jpg">
+                            <input type="radio" name="bandeira_cartao" id="bandeira-elo">
+                        </div>
+                        <div class="bandeira-cartao">
+                            <img class="img-bandeira-cartao" src="../apresentação da ong/img-teste.jpg">
+                            <input type="radio" name="bandeira_cartao" id="bandeira-amex">
+                        </div>
+                    </div>
+
+                    <!-- Infos do cartão -->
+                    <div class="informacoes-cartao">
+                        <label for="numero-cartao">Número do cartão:</label>
+                        <input type="text" id="numero-cartao" name="numero-cartao" class="inp-info-pagamento"> 
+
+                        <label for="titular-cartao">Titular:</label>
+                        <input type="text" id="titular-cartao" name="titular-cartao" class="inp-info-pagamento"> 
+
+                        <label for="data">Validade:</label>
+                        <input type="date" id="data" name="validade" class="inp-info-pagamento">
+
+                        <label for="codigo-seguranca">Código de segurança:</label>
+                        <input type="text" id="codigo-seguranca" name="cvv" class="inp-info-pagamento">
+                    </div>   
+                        <h2>Opção com boleto bancário</h2> 
+                        <div class="opcao-boleto">
+                            
+                            <div class="bandeira-cartao">
+                                <img class="img-bandeira-cartao" src="../apresentação da ong/img-teste.jpg">
+                                <input type="radio" id="boleto-bancario" name="tipo_pagamento">
+                            </div> 
+                            <p> O boleto será gerado e enviado ao email cadastrado em sua conta.</p>          
+                        </div>
+                        <div class="btn-box-pagamento">
+                            <button class="btn-pagamento">Confirmar Doação</button> 
+                        </div>
+                    
+                    </div>
+                    
+                    
+                    
+                </div>   
+            </div> 
+        </section>        
+    
+      
+        <mensagem></mensagem>
+    </main>
+    <meu-rodape></meu-rodape>
+    <script src="../../back-end/scripts.js"></script>
+</body>
+</html>                     
