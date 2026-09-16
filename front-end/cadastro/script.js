@@ -1,4 +1,4 @@
-import { Usuario, Manager } from "../../back-end/model.js"
+import { Usuario, Manager,exibirMensagem } from "../../back-end/model.js"
 const manager = new Manager()
 const formulario = document.querySelector(".form-box")
 formulario.addEventListener("submit",async(event)=>{
