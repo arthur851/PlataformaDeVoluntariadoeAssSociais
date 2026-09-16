@@ -1,118 +1,33 @@
-const BASE_URL = "http://localhost:3000"
-
-const cadastroForm = document.querySelector(".form-box");
-
-const inputNome = document.querySelector("#nome")
-const inputCPF = document.querySelector("#cpf")
-const inputTelefone= document.querySelector("#telefone")
-const inputEmail= document.querySelector("#email")
-const inputSenha= document.querySelector("#senha")
-const inputConfirmarSenha= document.querySelector("#confirmar-senha")
-
-cadastroForm.addEventListener("submit", Cadastro);
-
-async function Cadastro(event) {
-
-    event.preventDefault(); 
-  
-    const nome = inputNome.value.trim();
-    const cpf = inputCPF.value.trim();
-    const telefone = inputTelefone.value.replace(/[^\d]/g, '');
-    const email = inputEmail.value.trim()
-
-    const senha = inputSenha.value.trim()
-    const confirmarSenha  = inputConfirmarSenha.value.trim()
- 
-    //não está funcionando por causa dos
-    
-    if (nome === "" || cpf === "" || telefone === "" || email === ""  || senha === ""   || confirmarSenha === "" ) {
-        //alterar o alet para uma função de janela propria posteriormente
-        exibirMensagem("Dados","Por favor, preencha todos os campos do cadastro. ");
-        return; 
+import { Usuario, Manager } from "../../back-end/model.js"
+const manager = new Manager()
+const formulario = document.querySelector(".form-box")
+formulario.addEventListener("submit",async(event)=>{
+    event.preventDefault()
+    const nome = document.querySelector("#nome").value.trim()
+    const cpf = document.querySelector("#cpf").value.trim()
+    const telefone = document.querySelector("#telefone").value.trim()
+    const email = document.querySelector("#email").value.trim()
+    const senha = document.querySelector("#senha").value
+    const confirmarSenha = document.querySelector("#confirmar-senha").value
+    const usuario = new Usuario(
+        null,email,senha,nome,cpf,telefone,"doador"
+    )
+    if(!usuario.validarDados(confirmarSenha)){
+        return
     }
-
-    if (!validarCPF(cpf)) {
-        alert("CPF inválido! Verifique os números digitados.");
-        return; 
+    const emailExistente = await manager.buscar_por_email(email)
+    if(emailExistente){
+        exibirMensagem("EMAIL","Este e-mail já está cadastrado.")
+        return
     }
-
-
-    if (telefone.length !== 10 && telefone.length !== 11) {
-        alert("Telefone inválido! Digite o DDD + número.");
-        return;
+    const cpfExistente = await manager.buscar_por_cpf(cpf.replace(/[^\d]/g,'')) 
+    if(cpfExistente){
+        exibirMensagem("CPF","Este CPF já está cadastrado.")
+        return
     }
-
-    const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    if (!regexEmail.test(email)) {
-      alert("E-mail inválido! Digite um e-mail válido (ex: seu@email.com)");
-      return;
+    const novoUsuario = await manager.adicionar_user(usuario)
+    if(novoUsuario){
+        exibirMensagem("CADASTRO","Cadastro realizado com sucesso!")
+        formulario.reset()
     }
-   
-    if (!validarSenha(senha)) {
-      alert("Senha inválida! Siga o padrão sugerido.");
-      return; 
-    }
-    
-    if (senha !== confirmarSenha){
-      alert("As senhas não conferem. Digite novamente")
-      return;
-    }
-    try {
-        const response = await fetch(`${BASE_URL}/Usuarios`, {
-          method: "POST",
-          headers: {
-              "Content-Type": "application/json"
-          },
-          body: JSON.stringify({
-            email:email,
-            senha: senha,
-            nome: nome,
-            cpf: cpf,
-            telefone: telefone
-          })
-        });
-    } catch (erro) {
-      
-    }
-
-}
-
-function validarCPF(cpf) {
-  cpf = cpf.replace(/[^\d]/g, '');
-
-
-  if (cpf.length !== 11 || /^(\d)\1+$/.test(cpf)) {
-    return false;
-  }
-
-  let soma = 0;
-  let resto;
-
-  for (let i = 1; i <= 9; i++) {
-    soma += parseInt(cpf.substring(i - 1, i)) * (11 - i);
-  }
-  resto = (soma * 10) % 11;
-  if ((resto === 10) || (resto === 11)) resto = 0;
-  if (resto !== parseInt(cpf.substring(9, 10))) return false;
-
-  soma = 0;
-
-  for (let i = 1; i <= 10; i++) {
-    soma += parseInt(cpf.substring(i - 1, i)) * (12 - i);
-  }
-  resto = (soma * 10) % 11;
-  if ((resto === 10) || (resto === 11)) resto = 0;
-  if (resto !== parseInt(cpf.substring(10, 11))) return false;
-
-  return true; 
-}
-
-function validarSenha(senha) {
-    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
-    return regex.test(senha);
-}
-
-
-
-
+})

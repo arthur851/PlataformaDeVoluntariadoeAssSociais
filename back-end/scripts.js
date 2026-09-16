@@ -113,9 +113,3 @@ class mensagem extends HTMLElement{
     }
 }
 customElements.define("alerta-mensagem",mensagem);
-function exibirMensagem(titulo, texto){
-    const alerta = document.querySelector('alerta-mensagem')
-    if(alerta){
-        alerta.exibir(titulo, texto)
-    }
-}

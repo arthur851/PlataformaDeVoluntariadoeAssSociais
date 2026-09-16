@@ -1,34 +1,44 @@
 {
   "usuarios": [
-        {
-            "id": 1,
-            "email": "joao@email.com",
-            "senha": "senha_hash",
-            "tipo": "doador",
-            "nome": "João Silva",
-            "cpf": "12345678901",
-            "telefone": "84999999999"
-        }
-    ],
+    {
+      "id": "1",
+      "email": "joao@email.com",
+      "senha": "senha_hash",
+      "tipo": "doador",
+      "nome": "João Silva",
+      "cpf": "12345678901",
+      "telefone": "84999999999"
+    },
+    {
+      "email": "arthurms10326@gmail.com",
+      "senha": "i+nVTPH6?stH",
+      "nome": "arfev",
+      "cpf": "12734027402",
+      "telefone": "84994760353",
+      "tipo": "doador",
+      "id": "xNp3HaokIQU"
+    }
+  ],
   "doacoes": [
-        {
-            "id": 1,
-            "valor": 100.00,
-            "dataDoacao": "2026-08-30T10:00:00",
-            "formaPagamento": "pix",
-            "status": "confirmada",
-            "idDoador": 1
-        }
-    ],
+    {
+      "id": "1",
+      "valor": 100,
+      "dataDoacao": "2026-08-30T10:00:00",
+      "formaPagamento": "pix",
+      "status": "confirmada",
+      "idDoador": 1
+    }
+  ],
   "acoes": [
-        {
-            "id": 1,
-            "titulo": "Campanha de arrecadação",
-            "descricao": "Arrecadação de alimentos",
-            "data_acao": "2026-09-01T08:00:00",
-            "status": "planejada",
-            "idPerfilCriador": 1,
-            "imagens" : []
-        }
-    ]
+    {
+      "id": "1",
+      "titulo": "Campanha de arrecadação",
+      "descricao": "Arrecadação de alimentos",
+      "data_acao": "2026-09-01T08:00:00",
+      "status": "planejada",
+      "idPerfilCriador": 1,
+      "imagens": []
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

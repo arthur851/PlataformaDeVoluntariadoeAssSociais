@@ -37,17 +37,17 @@
   right: -40px;
   }
   .pagina-formulario {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background:
-  radial-gradient(circle at top left, #b8fff6 0%, transparent 25%),
-  radial-gradient(circle at bottom right, #8ff3e6 0%, transparent 25%),
-  linear-gradient(135deg, #52d6c5, #1fa89a);
-  overflow-y: auto;
-  overflow-x: hidden;
-  position: relative;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:
+    radial-gradient(circle at top left, #b8fff6 0%, transparent 25%),
+    radial-gradient(circle at bottom right, #8ff3e6 0%, transparent 25%),
+    linear-gradient(135deg, #52d6c5, #1fa89a);
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
   }
   .pagina-formulario meu-menu {
   position: absolute;
