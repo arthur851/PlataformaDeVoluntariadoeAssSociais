@@ -1,24 +1,43 @@
-import { Manager,exibirMensagem } from "../../back-end/model.js"
+import { Manager, exibirMensagem } from "../../back-end/model.js"
 const manager = new Manager()
 const formulario = document.querySelector(".form-box")
 formulario.addEventListener("submit",async(event)=>{
     event.preventDefault()
-    const email = document.querySelector("#usuario").value.trim()
-    if(email === ""){
-        exibirMensagem("REDEFINIR SENHA","Digite seu e-mail.")
+    const email = document.querySelector("#email").value.trim()
+    const codigo = document.querySelector("#Vcode").value.trim()
+    const novaSenha = document.querySelector("#nova-senha").value
+    const confirmarSenha = document.querySelector("#confirmar-senha").value
+    if(email === "" || codigo === "" || novaSenha === "" || confirmarSenha === ""){
+        exibirMensagem("ALTERAR SENHA","Preencha todos os campos.")
+        return
+    }
+    const codigoValido = await manager.verificarCodigo(email,codigo)
+    if(!codigoValido){
+        exibirMensagem("CÓDIGO","Código de verificação inválido.")
+        return
+    }
+    if(novaSenha.length < 12){
+        exibirMensagem("SENHA","A senha deve possuir pelo menos 12 caracteres.")
+        return
+    }
+    if(novaSenha !== confirmarSenha){
+        exibirMensagem("SENHA","As senhas não conferem.")
         return
     }
     const usuario = await manager.buscar_por_email(email)
     if(!usuario){
-        exibirMensagem("REDEFINIR SENHA","Usuário não encontrado.")
+        exibirMensagem("ALTERAR SENHA","Usuário não encontrado.")
         return
     }
-    const codigo = Math.floor(100000 + Math.random() * 900000).toString()
-    sessionStorage.setItem("codigoVerificacao",codigo)
-    sessionStorage.setItem("emailRedefinicao",usuario.email)
-    console.log("Código de verificação:",codigo)
-    exibirMensagem("REDEFINIR SENHA",`Código de verificação gerado: ${codigo}`)
+    const usuarioAtualizado = await manager.atualizar_senha(usuario.id,novaSenha)
+    if(!usuarioAtualizado){
+        exibirMensagem("ALTERAR SENHA","Não foi possível alterar a senha.")
+        return
+    }
+    await manager.desativarCodigo(codigoValido.id)
+    
     setTimeout(()=>{
-        window.location.href = "../alterar-senha/index.html"
+        exibirMensagem("ALTERAR SENHA","Senha alterada com sucesso!")
     },2000)
+    window.location.href = "http://127.0.0.1:5501/front-end/login/index.html"
 })

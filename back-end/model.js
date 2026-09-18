@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:3000"
+const BASE_URL = "http://localhost:3001"
 export class Usuario{
     constructor(id,email,senha,nome,cpf,telefone,tipo = "doador"){
         this.id = id
@@ -94,6 +94,75 @@ export class Manager{
     constructor(){
         this.Acoes = []
         this.Usuarios = []
+        this.emailRedefinicao = null
+        this.codigoVerificacao = null
+    }
+    async gerarCodigo(email){
+        await this.carregar_users()
+        const usuario = this.Usuarios.find(usuario => usuario.email === email)
+        if(!usuario){
+            return null
+        }
+        const codigo = Math.floor(100000 + Math.random() * 900000)
+        try{
+            const response = await fetch(`${BASE_URL}/codigos`,{
+                method:"POST",
+                headers:{
+                    "Content-Type":"application/json"
+                },
+                body:JSON.stringify({
+                    email:email,
+                    valor:codigo,
+                    ativo:true
+                })
+            })
+            if(!response.ok){
+                throw new Error("Erro ao salvar código de verificação")
+            }
+            const codigoSalvo = await response.json()
+            console.log("Código de verificação:",codigoSalvo.valor)
+            return codigoSalvo
+        }catch(erro){
+            console.error(erro)
+            return null
+        }
+    }
+    async verificarCodigo(email,codigo){
+        try{
+            const response = await fetch(`${BASE_URL}/codigos?email=${encodeURIComponent(email)}&ativo=true`)
+            if(!response.ok){
+                throw new Error("Erro ao buscar códigos de verificação")
+            }
+            const codigos = await response.json()
+            const codigoEncontrado = codigos.find(codigoSalvo => Number(codigoSalvo.valor) === Number(codigo))
+            if(!codigoEncontrado){
+                return null
+            }
+            return codigoEncontrado
+        }catch(erro){
+            console.error(erro)
+            return null
+        }
+    }
+    async desativarCodigo(id){
+        try{
+            const response = await fetch(`${BASE_URL}/codigos/${id}`,{
+                method:"PATCH",
+                headers:{
+                    "Content-Type":"application/json"
+                },
+                body:JSON.stringify({
+                    ativo:false
+                })
+            })
+            if(!response.ok){
+                throw new Error("Erro ao desativar código")
+            }
+            return true
+        }catch(erro){
+            console.error(erro)
+            return false
+        }
     }
     async carregar_users(){
         try{
@@ -262,7 +331,41 @@ export class Manager{
         }catch(erro){
             console.error(erro)
         }
+    }async atualizar_senha(id,novaSenha){
+        try{
+            const response = await fetch(`${BASE_URL}/usuarios/${id}`,{
+                method:"PATCH",
+                headers:{
+                    "Content-Type":"application/json"
+                },
+                body:JSON.stringify({
+                    senha:novaSenha
+                })
+            })
+            if(!response.ok){
+                throw new Error("Erro ao atualizar senha")
+            }
+            const usuario = await response.json()
+            const novoUsuario = new Usuario(
+                usuario.id,
+                usuario.email,
+                usuario.senha,
+                usuario.nome,
+                usuario.cpf,
+                usuario.telefone,
+                usuario.tipo
+            )
+            const index = this.Usuarios.findIndex(usuario => usuario.id == id)
+            if(index !== -1){
+                this.Usuarios[index] = novoUsuario
+            }
+            return novoUsuario
+        }catch(erro){
+            console.error(erro)
+            return null
+        }
     }
+
     async atualizarLista(){
         await this.carregar_users()
     }

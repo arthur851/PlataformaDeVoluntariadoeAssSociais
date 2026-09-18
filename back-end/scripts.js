@@ -14,7 +14,10 @@ class menu extends HTMLElement{
                 <!-- Links de navegação -->
                 <ul class="nav-links">
                     <li>
-                        <a href="http://127.0.0.1:5501/front-end/apresentacaoDaOng/index.html">Sobre</a>
+                        <a href="http://127.0.0.1:5501/front-end/perfil/index.html">Perfil</a>
+                    </li>
+                    <li>
+                        <a href="http://127.0.0.1:5501/front-end/apresentacao-da-ong/index.html">Sobre</a>
                     </li>
                     <li>
                         <a href="http://127.0.0.1:5501/front-end/login/index.html">Login</a>
