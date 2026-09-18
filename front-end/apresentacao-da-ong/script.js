@@ -1,29 +1,16 @@
-class MyCustomElement extends HTMLElement{
-    constructor(){
-        super();
+let slideAtual = 0
+const carrossel = document.querySelector("#carrossel")
+const slides = document.querySelectorAll(".slide")
+function mudarSlide(direcao){
+    slideAtual += direcao
+    if(slideAtual >= slides.length){
+        slideAtual = 0
     }
-    connectedCallback(){
-        const template = document.createElement("div")
-        template.innerHTML = `
-            <header>
-            <!-- Barra de navegação -->
-                <nav class="navbar">
-                <a href="link" class="logo">
-                    LOGO
-                </a>
-                <!-- Links de navegação -->
-                <ul class="nav-links">
-                    <li>
-                        <a href="link">Sobre</a>
-                    </li>
-                    <li>
-                        <a href="link">Login</a>
-                    </li>
-                </ul>
-            </nav>
-            </header>
-        `
-        this.appendChild(template)
+    if(slideAtual < 0){
+        slideAtual = slides.length - 1
     }
+    carrossel.scrollTo({
+        left: slides[slideAtual].offsetLeft,
+        behavior:"smooth"
+    })
 }
-customElements.define("meu-menu",MyCustomElement);
